@@ -31,19 +31,10 @@ module.exports = function loader(content: string, inputSourceMap: ?Object) {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
   };
 
-  const resolveSync = enhancedResolve.create.sync(
-    // this._compilation is a deprecated API
-    // However there seems to be no other way to access webpack's resolver
-    // There is this.resolve, but it's asynchronous
-    // Another option is to read the webpack.config.js, but it won't work for programmatic usage
-    // This API is used by many loaders/plugins, so hope we're safe for a while
-    this._compilation && this._compilation.options.resolve
-      ? {
-          ...resolveOptions,
-          alias: this._compilation.options.resolve.alias,
-        }
-      : resolveOptions
-  );
+  const webpackAlias = this.loaders[this.loaderIndex].options.resolve ? Object.assign({}, resolveOptions, {
+    alias: this.loaders[this.loaderIndex].options.resolve.alias,
+  }) : resolveOptions;
+  const resolveSync = enhancedResolve.create.sync(webpackAlias);
 
   let result;
 
