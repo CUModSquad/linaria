@@ -104,23 +104,23 @@ module.exports = function transform(code: string, options: Options): Result {
       case 'stylis':
       default:
         stylis.use(null)((context, decl) => {
-          if (context === STYLIS_DECLARATION && options.outputFilename) {
-            // When writing to a file, we need to adjust the relative paths inside url(..) expressions
-            // It'll allow css-loader to resolve an imported asset properly
-            return decl.replace(
-              /\b(url\()(\.[^)]+)(\))/g,
-              (match, p1, p2, p3) =>
-                p1 +
-                // Replace asset path with new path relative to the output CSS
-                path.relative(
-                  /* $FlowFixMe */
-                  path.dirname(options.outputFilename),
-                  // Get the absolute path to the asset from the path relative to the JS file
-                  path.resolve(path.dirname(options.filename), p2)
-                ) +
-                p3
-            );
-          }
+          // if (context === STYLIS_DECLARATION && options.outputFilename) {
+          //   // When writing to a file, we need to adjust the relative paths inside url(..) expressions
+          //   // It'll allow css-loader to resolve an imported asset properly
+          //   return decl.replace(
+          //     /\b(url\()(\.[^)]+)(\))/g,
+          //     (match, p1, p2, p3) =>
+          //       p1 +
+          //       // Replace asset path with new path relative to the output CSS
+          //       path.relative(
+          //         /* $FlowFixMe */
+          //         path.dirname(options.outputFilename),
+          //         // Get the absolute path to the asset from the path relative to the JS file
+          //         path.resolve(path.dirname(options.filename), p2)
+          //       ) +
+          //       p3
+          //   );
+          // }
 
           return decl;
         });
