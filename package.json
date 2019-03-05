@@ -1,5 +1,5 @@
 {
-  "name": "linaria",
+  "name": "@csegames/linaria",
   "version": "0.1.99",
   "description": "Blazing fast zero-runtime CSS in JS library",
   "main": "lib/index.js",
