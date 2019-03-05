@@ -26,7 +26,7 @@ module.exports = function linaria({
   const cssLookup = {};
 
   return {
-    name: 'linaria',
+    name: '@csegames/linaria',
     load(id: string) {
       return cssLookup[id];
     },

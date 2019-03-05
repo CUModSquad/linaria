@@ -197,7 +197,7 @@ module.exports = function evaluate(
           ];
 
           const defaults = {
-            caller: { name: 'linaria', evaluate: true },
+            caller: { name: '@csegames/linaria', evaluate: true },
             filename: this.filename,
             presets: [[require.resolve('./index'), options]],
             plugins: [
@@ -228,7 +228,7 @@ module.exports = function evaluate(
                     // We require the file from internal path which is not the same one that we export
                     // This case won't get caught and the preset won't filtered, even if they are same
                     // So we add an extra check for top level linaria/babel
-                    name === 'linaria/babel' ||
+                    name === '@csegames/linaria/babel' ||
                     name === require.resolve('../../babel') ||
                     // Also add a check for the plugin names we include for bundler support
                     plugins.includes(name)

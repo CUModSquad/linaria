@@ -1,6 +1,6 @@
 /* @flow */
 
-import { css } from 'linaria';
+import { css } from '@csegames/linaria';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';

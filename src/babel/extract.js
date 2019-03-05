@@ -102,9 +102,9 @@ const imports = (t, scope, filename, identifier, source) => {
     // Otherwise try to resolve both and check if they are the same file
     resolveFromFile(value) ===
       // eslint-disable-next-line no-nested-ternary
-      (source === 'linaria'
+      (source === '@csegames/linaria'
         ? require.resolve('../index')
-        : source === 'linaria/react'
+        : source === '@csegames/linaria/react'
         ? require.resolve('../react/')
         : resolveFromFile(source));
 
@@ -243,7 +243,7 @@ module.exports = function extract(babel: any, options: Options) {
             path.scope,
             state.file.opts.filename,
             'styled',
-            'linaria/react'
+            '@csegames/linaria/react'
           )
         ) {
           styled = { component: path.get('tag').get('arguments')[0] };
@@ -257,14 +257,14 @@ module.exports = function extract(babel: any, options: Options) {
             path.scope,
             state.file.opts.filename,
             'styled',
-            'linaria/react'
+            '@csegames/linaria/react'
           )
         ) {
           styled = {
             component: { node: t.stringLiteral(tag.property.name) },
           };
         } else if (
-          imports(t, path.scope, state.file.opts.filename, 'css', 'linaria')
+          imports(t, path.scope, state.file.opts.filename, 'css', '@csegames/linaria')
         ) {
           css = t.isIdentifier(tag) && tag.name === 'css';
         }

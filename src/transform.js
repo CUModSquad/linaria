@@ -62,7 +62,7 @@ module.exports = function transform(code: string, options: Options): Result {
   const ast = babel.parseSync(code, {
     ...(options.pluginOptions ? options.pluginOptions.babelOptions : null),
     filename: options.filename,
-    caller: { name: 'linaria' },
+    caller: { name: '@csegames/linaria' },
   });
 
   const { metadata, code: transformedCode, map } = babel.transformFromAstSync(

@@ -1,6 +1,6 @@
 const cosmiconfig = require('cosmiconfig');
 
-const explorer = cosmiconfig('linaria');
+const explorer = cosmiconfig('@csegames/linaria');
 
 module.exports = function linaria(context, options) {
   // Load configuration file

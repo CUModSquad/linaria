@@ -1,6 +1,6 @@
 {
   "name": "@csegames/linaria",
-  "version": "0.1.100",
+  "version": "0.1.101",
   "description": "Blazing fast zero-runtime CSS in JS library",
   "main": "lib/index.js",
   "bin": "bin/linaria.js",
