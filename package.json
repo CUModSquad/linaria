@@ -1,6 +1,6 @@
 {
   "name": "@csegames/linaria",
-  "version": "0.1.101",
+  "version": "0.1.102",
   "description": "Blazing fast zero-runtime CSS in JS library",
   "main": "lib/index.js",
   "bin": "bin/linaria.js",
@@ -101,12 +101,6 @@
   },
   "resolutions": {
     "**/babel-core": "7.0.0-bridge.0"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "yarn lint && yarn flow && yarn test"
-    }
   },
   "jest": {
     "testRegex": "/__tests__/.*\\.(test|spec)\\.js$",

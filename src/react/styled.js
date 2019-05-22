@@ -121,15 +121,7 @@ function styled(tag: React.ComponentType<*> | string) {
   };
 }
 
-if (process.env.NODE_ENV !== 'production') {
-  module.exports = new Proxy(styled, {
-    get(o, prop) {
-      return o(prop);
-    },
-  });
-} else {
-  module.exports = styled;
-}
+module.exports = styled;
 
 type CSSProperties = {
   [key: string]: string | number | CSSProperties,
